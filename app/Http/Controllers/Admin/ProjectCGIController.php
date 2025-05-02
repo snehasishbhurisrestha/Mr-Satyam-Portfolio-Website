@@ -35,6 +35,7 @@ class ProjectCGIController extends Controller
 
         $project = new Project();
         $project->name = $request->name;
+        $project->slug = createSlug($request->name, Project::class);
         $project->parent_id = $request->parent_id;
         $project->video_link = $request->video_link;
         $project->is_visible = $request->is_visible;
@@ -77,7 +78,12 @@ class ProjectCGIController extends Controller
         }
 
         $project = Project::findOrFail($id);
-        $project->name = $request->name;
+        // $project->name = $request->name;
+        // $project->slug = createSlug($request->name, Project::class);
+        if(($project->name != $request->name) || empty($project->slug) ){
+            $project->name = $request->name;
+            $project->slug = createSlug($request->name, Project::class);
+        }
         $project->parent_id = $request->parent_id;
         $project->video_link = $request->video_link;
         $project->is_visible = $request->is_visible;

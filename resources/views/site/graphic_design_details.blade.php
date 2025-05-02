@@ -66,7 +66,7 @@
                                         height: 100%;
                                         border-radius: inherit;
                                         object-position: center center;
-                                        object-fit: cover;
+                                        /*object-fit: cover;*/
                                         image-rendering: auto;">
                         @endif
                     </div>

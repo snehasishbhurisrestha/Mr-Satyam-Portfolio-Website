@@ -439,7 +439,7 @@
 					<div class="row">
 						<div class="col-md-12 col-lg-12">
 							<div class="text-center testimonial-title">
-								<h2 class="title-uppercase mb-0">Design Success <span>Stories</span></h2>
+								<h2 class="title-uppercase mb-0">Design Success Stories {{--<span>Stories</span>--}}</h2>
 								<p>Transforming visions into impactful realities. Hear how our designs have made a difference</p>
 							</div>
 							<div class="slick-slider">
