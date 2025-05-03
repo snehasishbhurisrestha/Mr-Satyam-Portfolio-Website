@@ -19,14 +19,14 @@
       <li  data-menuanchor="clients">
         <a href="{{ route('home') }}#clients">Clients</a>
       </li>
+      <li  data-menuanchor="contact">
+        <a href="{{ route('home') }}#contact">Contact</a>
+      </li>
       @if(is_have_blog())
       <li  data-menuanchor="blogs">
         <a href="{{ route('home') }}#blogs">Blog</a>
       </li>
       @endif
-      <li  data-menuanchor="contact">
-        <a href="{{ route('home') }}#contact">Contact</a>
-      </li>
     </ul>
   </div>
 
@@ -66,17 +66,17 @@
                   <li class="nav-item" data-menuanchor="clients">
                   <a class="nav-link " href="{{ route('home') }}#clients">Clients</a>
                   </li>
-                  @if(is_have_blog())
-                  <li class="nav-item" data-menuanchor="blogs">
-                  <a class="nav-link " href="{{ route('home') }}#blogs">Blog</a>
-                  </li>
-                  @endif
                   {{-- <li class="nav-item" data-menuanchor="store">
                     <a class="nav-link " href="{{ route('home') }}#store">Store</a>
                   </li> --}}
                   <li class="nav-item" data-menuanchor="contact">
                   <a class="nav-link " href="{{ route('home') }}#contact">Contact</a>
                   </li>
+                  @if(is_have_blog())
+                  <li class="nav-item" data-menuanchor="blogs">
+                  <a class="nav-link " href="{{ route('home') }}#blogs">Blog</a>
+                  </li>
+                  @endif
               </ul>
               </div>
           </div>

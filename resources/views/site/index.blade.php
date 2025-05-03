@@ -773,131 +773,7 @@
 		</div>
 	</div> --}}
 
-	@if($blogs->isNotEmpty())
-	<div data-anchor="blogs" class="pp-scrollable section section-6">
-		<div class="scroll-wrap">
-			<div class="section-bg"></div>
-			<div class="scrollable-content">
-				<div class="vertical-centred contact">
-					<div class="boxed boxed-inner">
-						<div class="boxed">
-							<div class="container">
-								<div class="intro overflow-hidden">
-									<h2 class="title-uppercase">Recent news</h2>
-									<div class="row">
-										@foreach ($blogs as $blog)
-										<div class="col-md-4">
-											<article class="vlt-post vlt-post--masonry post-52 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized tag-follow tag-photography">
-												<div class="vlt-post-border">
-													<span class="top"></span>
-													<span class="right"></span>
-													<span class="bottom"></span>
-													<span class="left"></span>
-												</div>
-												<div class="vlt-post-media">
-													<img decoding="async"  src="{{ $blog->getFirstMediaUrl('blog-image') }}" class="attachment-gilber-800x600 size-gilber-800x600 wp-post-image" alt="" loading="lazy" srcset="{{ $blog->getFirstMediaUrl('blog-image') }} 800w, {{ asset('assets/site-asset/images/single-post-03-300x162.jpg') }} 300w, {{ $blog->getFirstMediaUrl('blog-image') }} 1024w, {{ $blog->getFirstMediaUrl('blog-image') }} 768w, {{ $blog->getFirstMediaUrl('blog-image') }} 1110w" sizes="(max-width: 800px) 100vw, 800px" />
-												</div>
-												<div class="vlt-post-content">
-													<header class="vlt-post-header">
-														<div class="vlt-post-meta">
-															<span>
-																<time datetime="2020-12-10T09:54:09+00:00">{{ format_date($blog->publish_date) }}</time>
-															</span>
-														</div>
-														<h3 class="vlt-post-title">
-															<a href="{{ route('blog.details',$blog->slug) }}">{{ $blog->title }}</a>
-														</h3>
-													</header>
-													<div class="vlt-post-excerpt"> {!! truncateBlogDescription($blog->description) !!}</div>
-													<footer class="vlt-post-footer">
-														<a class="vlt-read-more-link" href="{{ route('blog.details',$blog->slug) }}">Read More <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 8">
-															<defs></defs>
-																<path d="M15.3536 4.35355c.1952-.19526.1952-.51184 0-.7071L12.1716.464466c-.1953-.195262-.5119-.195262-.7071 0-.1953.195262-.1953.511845 0 .707104L14.2929 4l-2.8284 2.82843c-.1953.19526-.1953.51184 0 .7071.1952.19527.5118.19527.7071 0l3.182-3.18198zM0 4.5h15v-1H0v1z" fill="currentColor"></path>
-															</svg>
-														</a>
-													</footer>
-												</div>
-											</article>
-										</div>
-										@endforeach
-										{{-- <div class="col-md-4">
-											<article class="vlt-post vlt-post--masonry post-52 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized tag-follow tag-photography">
-														<div class="vlt-post-border">
-														<span class="top"></span>
-														<span class="right"></span>
-														<span class="bottom"></span>
-														<span class="left"></span>
-														</div>
-														<div class="vlt-post-media">
-														<img decoding="async"  src="{{ asset('assets/site-asset/images/news/2.jpg') }}" class="attachment-gilber-800x600 size-gilber-800x600 wp-post-image" alt="" loading="lazy" srcset="{{ asset('assets/site-asset/images/news/2.jpg') }} 800w, {{ asset('assets/site-asset/images/news/2.jpg') }} 300w, {{ asset('assets/site-asset/images/news/2.jpg') }} 1024w, {{ asset('assets/site-asset/images/news/2.jpg') }} 768w, {{ asset('assets/site-asset/images/news/2.jpg') }} 1110w" sizes="(max-width: 800px) 100vw, 800px" />
-														</div>
-														<div class="vlt-post-content">
-														<header class="vlt-post-header">
-															<div class="vlt-post-meta">
-															<span>
-																<time datetime="2020-12-10T09:54:09+00:00">December 10, 2020</time>
-															</span>
-															</div>
-															<h3 class="vlt-post-title">
-															<a href="#">Secrets of the Serpents</a>
-															</h3>
-														</header>
-														<div class="vlt-post-excerpt"> Beast creature days. This response is important for our ability to learn from mistakes, but it alsogives rise to ...</div>
-														<footer class="vlt-post-footer">
-															<a class="vlt-read-more-link" href="#">Read More <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 8">
-																<defs></defs>
-																<path d="M15.3536 4.35355c.1952-.19526.1952-.51184 0-.7071L12.1716.464466c-.1953-.195262-.5119-.195262-.7071 0-.1953.195262-.1953.511845 0 .707104L14.2929 4l-2.8284 2.82843c-.1953.19526-.1953.51184 0 .7071.1952.19527.5118.19527.7071 0l3.182-3.18198zM0 4.5h15v-1H0v1z" fill="currentColor"></path>
-															</svg>
-															</a>
-														</footer>
-														</div>
-													</article>
-										</div>
-										<div class="col-md-4">
-											<article class="vlt-post vlt-post--masonry post-52 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized tag-follow tag-photography">
-														<div class="vlt-post-border">
-														<span class="top"></span>
-														<span class="right"></span>
-														<span class="bottom"></span>
-														<span class="left"></span>
-														</div>
-														<div class="vlt-post-media">
-														<img decoding="async"  src="{{ asset('assets/site-asset/images/news/3.jpg') }}" class="attachment-gilber-800x600 size-gilber-800x600 wp-post-image" alt="" loading="lazy" srcset="{{ asset('assets/site-asset/images/news/3.jpg') }} 800w, {{ asset('assets/site-asset/images/news/3.jpg') }} 300w, {{ asset('assets/site-asset/images/news/3.jpg') }} 1024w, {{ asset('assets/site-asset/images/news/3.jpg') }} 768w, {{ asset('assets/site-asset/images/news/3.jpg') }} 1110w" sizes="(max-width: 800px) 100vw, 800px" />
-														</div>
-														<div class="vlt-post-content">
-														<header class="vlt-post-header">
-															<div class="vlt-post-meta">
-															<span>
-																<time datetime="2020-12-10T09:54:09+00:00">December 10, 2020</time>
-															</span>
-															</div>
-															<h3 class="vlt-post-title">
-															<a href="#">Secrets of the Serpents</a>
-															</h3>
-														</header>
-														<div class="vlt-post-excerpt"> Beast creature days. This response is important for our ability to learn from mistakes, but it alsogives rise to ...</div>
-														<footer class="vlt-post-footer">
-															<a class="vlt-read-more-link" href="#">Read More <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 8">
-																<defs></defs>
-																<path d="M15.3536 4.35355c.1952-.19526.1952-.51184 0-.7071L12.1716.464466c-.1953-.195262-.5119-.195262-.7071 0-.1953.195262-.1953.511845 0 .707104L14.2929 4l-2.8284 2.82843c-.1953.19526-.1953.51184 0 .7071.1952.19527.5118.19527.7071 0l3.182-3.18198zM0 4.5h15v-1H0v1z" fill="currentColor"></path>
-															</svg>
-															</a>
-														</footer>
-														</div>
-													</article>
-										</div> --}}
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	@endif
-
-	<div data-anchor="contact" class="pp-scrollable section section-7">
+	<div data-anchor="contact" class="pp-scrollable section section-6">
 		<div class="scroll-wrap">
 			<div class="scrollable-content">
 				<div class="vertical-centred contact">
@@ -946,6 +822,7 @@
 											</div>
 										</div>
 									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -953,6 +830,64 @@
 			</div>
 		</div>
 	</div>
+
+	@if($blogs->isNotEmpty())
+	<div data-anchor="blogs" class="pp-scrollable section section-7">
+		<div class="scroll-wrap">
+			<div class="section-bg"></div>
+			<div class="scrollable-content">
+				<div class="vertical-centred contact">
+					<div class="boxed boxed-inner">
+						<div class="boxed">
+							<div class="container">
+								<div class="intro overflow-hidden">
+									<h2 class="title-uppercase">Recent news</h2>
+									<div class="row">
+										@foreach ($blogs as $blog)
+										<div class="col-md-4">
+											<article class="vlt-post vlt-post--masonry post-52 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized tag-follow tag-photography">
+												<div class="vlt-post-border">
+													<span class="top"></span>
+													<span class="right"></span>
+													<span class="bottom"></span>
+													<span class="left"></span>
+												</div>
+												<div class="vlt-post-media">
+													<img decoding="async"  src="{{ $blog->getFirstMediaUrl('blog-image') }}" class="attachment-gilber-800x600 size-gilber-800x600 wp-post-image" alt="" loading="lazy" srcset="{{ $blog->getFirstMediaUrl('blog-image') }} 800w, {{ asset('assets/site-asset/images/single-post-03-300x162.jpg') }} 300w, {{ $blog->getFirstMediaUrl('blog-image') }} 1024w, {{ $blog->getFirstMediaUrl('blog-image') }} 768w, {{ $blog->getFirstMediaUrl('blog-image') }} 1110w" sizes="(max-width: 800px) 100vw, 800px" />
+												</div>
+												<div class="vlt-post-content">
+													<header class="vlt-post-header">
+														<div class="vlt-post-meta">
+															<span>
+																<time datetime="2020-12-10T09:54:09+00:00">{{ format_date($blog->publish_date) }}</time>
+															</span>
+														</div>
+														<h3 class="vlt-post-title">
+															<a href="{{ route('blog.details',$blog->slug) }}">{{ $blog->title }}</a>
+														</h3>
+													</header>
+													<div class="vlt-post-excerpt"> {!! truncateBlogDescription($blog->description) !!}</div>
+													<footer class="vlt-post-footer">
+														<a class="vlt-read-more-link" href="{{ route('blog.details',$blog->slug) }}">Read More <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 8">
+															<defs></defs>
+																<path d="M15.3536 4.35355c.1952-.19526.1952-.51184 0-.7071L12.1716.464466c-.1953-.195262-.5119-.195262-.7071 0-.1953.195262-.1953.511845 0 .707104L14.2929 4l-2.8284 2.82843c-.1953.19526-.1953.51184 0 .7071.1952.19527.5118.19527.7071 0l3.182-3.18198zM0 4.5h15v-1H0v1z" fill="currentColor"></path>
+															</svg>
+														</a>
+													</footer>
+												</div>
+											</article>
+										</div>
+										@endforeach
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	@endif
 </div>
 @endsection   
 
