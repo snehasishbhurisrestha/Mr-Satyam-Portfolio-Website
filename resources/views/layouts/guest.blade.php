@@ -55,7 +55,7 @@
                             
                             <div class="d-flex justify-content-center align-items-center mt-4">
                                 <a href="{{ route('home') }}" class="">
-                                    <img src="{{ asset('assets/site-asset/images/logo.png') }}" height="75" alt="logo">
+                                    <img src="{{ asset('assets/site-asset/images/logo1.png') }}" height="75" alt="logo">
                                 </a>
                             </div>
 

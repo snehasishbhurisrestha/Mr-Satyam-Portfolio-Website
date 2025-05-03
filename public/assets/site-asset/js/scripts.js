@@ -99,7 +99,6 @@
 					anchors.push(anchor);
 				}
 			});
-			console.log(anchors);
 
 			$('.pagepiling').pagepiling({
 				scrollingSpeed: 280, 

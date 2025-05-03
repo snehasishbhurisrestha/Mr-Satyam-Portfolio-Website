@@ -5,22 +5,22 @@
             <div class="navbar-brand-box">
                 <a href="{{ route('dashboard') }}" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{ asset('assets/site-asset/images/logo.png') }}" alt="" height="40">
+                        <img src="{{ asset('assets/site-asset/images/logo1.png') }}" alt="" height="40">
                         {{-- <h4>Mypuppy.com</h4> --}}
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ asset('assets/site-asset/images/logo.png') }}" alt="" height="40">
+                        <img src="{{ asset('assets/site-asset/images/logo1.png') }}" alt="" height="40">
                         {{-- <h2>Mypuppy.com</h2> --}}
                     </span>
                 </a>
 
                 <a href="{{ route('dashboard') }}" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{ asset('assets/site-asset/images/logo.png') }}" alt="" height="20">
+                        <img src="{{ asset('assets/site-asset/images/logo1.png') }}" alt="" height="20">
                         {{-- <h4>Mypuppy.com</h4> --}}
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ asset('assets/site-asset/images/logo.png') }}" alt="" height="40">
+                        <img src="{{ asset('assets/site-asset/images/logo1.png') }}" alt="" height="40">
                         {{-- <h2>Mypuppy.com</h2> --}}
                     </span>
                 </a>
