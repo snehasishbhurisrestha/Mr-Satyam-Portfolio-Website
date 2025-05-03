@@ -30,13 +30,13 @@ Route::get('/blogs/{slug}', [HomeController::class, 'blog_details'])->name('blog
 // Route::get('/projects', [ProjectSiteController::class, 'index'])->name('project');
 
 Route::get('/projects/cgi', [ProjectSiteController::class, 'project_cgi'])->name('project.cgi');
-Route::get('/projects/cgi/{id?}/details', [ProjectSiteController::class, 'project_cgi_details'])->name('project.cgi.details');
+Route::get('/projects/cgi/{slug?}', [ProjectSiteController::class, 'project_cgi_details'])->name('project.cgi.details');
 
 Route::get('/projects/motion-graphic', [ProjectSiteController::class, 'project_motion_graphic'])->name('project.motion-graphic');
-Route::get('/projects/motion-graphic/{id?}/details', [ProjectSiteController::class, 'project_motion_graphic_details'])->name('project.motion-graphic.details');
+Route::get('/projects/motion-graphic/{slug?}', [ProjectSiteController::class, 'project_motion_graphic_details'])->name('project.motion-graphic.details');
 
 Route::get('/projects/video-production', [ProjectSiteController::class, 'project_video_production'])->name('project.video-production');
-Route::get('/projects/video-production/{id?}/details', [ProjectSiteController::class, 'project_video_production_details'])->name('project.video-production.details');
+Route::get('/projects/video-production/{slug?}', [ProjectSiteController::class, 'project_video_production_details'])->name('project.video-production.details');
 
 
 Route::get('/projects/grapic-design', [ProjectSiteController::class, 'grapic_design'])->name('project.grapic-design');

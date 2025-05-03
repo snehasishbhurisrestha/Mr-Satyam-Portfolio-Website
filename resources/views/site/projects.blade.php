@@ -100,7 +100,7 @@
                       <div class="gallery">
                         @foreach ($projects as $project)
                           <div class="gallery-item">
-                              <a href="@if($project->project_type == 'cgi') {{ route('project.cgi.details',$project->id) }} @elseif($project->project_type == 'video_production') {{ route('project.video-production.details',$project->id) }} @else {{ route('project.motion-graphic.details',$project->id) }} @endif">
+                              <a href="@if($project->project_type == 'cgi') {{ route('project.cgi.details',$project->slug) }} @elseif($project->project_type == 'video_production') {{ route('project.video-production.details',$project->slug) }} @else {{ route('project.motion-graphic.details',$project->slug) }} @endif">
                                 @if($project->project_type == 'cgi')  
                                 <img src="{{ $project->getFirstMediaUrl('project-cgi') }}" alt="Thumbnail">
                                 @else

@@ -22,12 +22,17 @@ class ProjectSiteController extends Controller
                             ->orderBy('id','desc')->get();
         return view('site.projects',compact('projects'));
     }
-    public function project_cgi_details(string $id){
-        $projects = Project::where('is_visible',1)
-                            ->where('project_type','cgi')
-                            ->where('parent_id',$id)
-                            ->orderBy('id','desc')->get();
-        return view('site.project_details',compact('projects'));
+    public function project_cgi_details(string $slug){
+        $parent_project = Project::where('slug',$slug)->first();
+        if($parent_project){
+            $projects = Project::where('is_visible',1)
+                                ->where('project_type','cgi')
+                                ->where('parent_id',$parent_project->id)
+                                ->orderBy('id','desc')->get();
+            return view('site.project_details',compact('projects'));
+        }else{
+            return redirect()->back()->with('error','No Data avaliable');
+        }
     }
 
     public function project_motion_graphic()
@@ -38,13 +43,18 @@ class ProjectSiteController extends Controller
                             ->orderBy('id','desc')->get();
         return view('site.projects',compact('projects'));
     }
-    public function project_motion_graphic_details(string $id)
+    public function project_motion_graphic_details(string $slug)
     {
-        $projects = Project::where('is_visible',1)
-                            ->where('project_type','motion_graphic')
-                            ->where('parent_id',$id)
-                            ->orderBy('id','desc')->get();
-        return view('site.project_details',compact('projects'));
+        $parent_project = Project::where('slug',$slug)->first();
+        if($parent_project){
+            $projects = Project::where('is_visible',1)
+                                ->where('project_type','motion_graphic')
+                                ->where('parent_id',$parent_project->id)
+                                ->orderBy('id','desc')->get();
+            return view('site.project_details',compact('projects'));
+        }else{
+            return redirect()->back()->with('error','No Data avaliable');
+        }
     }
 
     public function grapic_design(){
@@ -74,12 +84,17 @@ class ProjectSiteController extends Controller
                             ->orderBy('id','desc')->get();
         return view('site.projects',compact('projects'));
     }
-    public function project_video_production_details(string $id)
+    public function project_video_production_details(string $slug)
     {
-        $projects = Project::where('is_visible',1)
-                            ->where('project_type','video_production')
-                            ->where('parent_id',$id)
-                            ->orderBy('id','desc')->get();
-        return view('site.project_details',compact('projects'));
+        $parent_project = Project::where('slug',$slug)->first();
+        if($parent_project){
+            $projects = Project::where('is_visible',1)
+                                ->where('project_type','video_production')
+                                ->where('parent_id',$parent_project->id)
+                                ->orderBy('id','desc')->get();
+            return view('site.project_details',compact('projects'));
+        }else{
+            return redirect()->back()->with('error','No Data avaliable');
+        }
     }
 }
