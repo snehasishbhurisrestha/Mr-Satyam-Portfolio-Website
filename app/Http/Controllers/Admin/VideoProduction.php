@@ -43,6 +43,9 @@ class VideoProduction extends Controller
         if ($request->hasFile('file')) {
             $project->addMedia($request->file('file'))->toMediaCollection('project-video-production');
         }
+        if ($request->hasFile('file2')) {
+            $project->addMedia($request->file('file2'))->toMediaCollection('project-video-production-details');
+        }
         $res = $project->save();
         if($res){
             return redirect()->back()->with('success','Data Added Successfully');
@@ -90,6 +93,10 @@ class VideoProduction extends Controller
             $project->clearMediaCollection('project-video-production');
             $project->addMedia($request->file('file'))->toMediaCollection('project-video-production');
         }
+        if ($request->hasFile('file2')) {
+            $project->clearMediaCollection('project-video-production-details');
+            $project->addMedia($request->file('file2'))->toMediaCollection('project-video-production-details');
+        }
         $res = $project->update();
         if($res){
             return redirect()->back()->with('success','Data Updated Successfully');
@@ -111,5 +118,18 @@ class VideoProduction extends Controller
         }else{
             return back()->with('error','Not Found');
         }
+    }
+
+    public function updateParentOrder(Request $request)
+    {
+        // return $request->order;
+        foreach ($request->order as $item) {
+            Project::where('id', $item['id'])
+                ->whereNull('parent_id') // ensure only parent records are updated
+                ->where('project_type','video_production')
+                ->update(['order' => $item['position']]);
+        }
+
+        return response()->json(['status' => 'success']);
     }
 }

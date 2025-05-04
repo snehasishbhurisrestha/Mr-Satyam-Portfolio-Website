@@ -62,6 +62,9 @@ Route::middleware('auth')->group(function () {
 
     // Route::resource('project', ProjectController::class);
     Route::resource('project-motion-graphic', ProjectMotionGraphicController::class);
+    Route::post('update-parent-order', [ProjectMotionGraphicController::class,'updateParentOrder'])->name('project-motion-graphic.update-order');
+    
+
     Route::resource('project-cgi', ProjectCGIController::class);
     Route::resource('graphic-design', GraphicDesignController::class);
     Route::resource('video-production', VideoProduction::class);

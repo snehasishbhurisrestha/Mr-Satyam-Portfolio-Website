@@ -19,7 +19,7 @@ class ProjectSiteController extends Controller
         $projects = Project::where('is_visible',1)
                             ->where('project_type','cgi')
                             ->where('parent_id',NULL)
-                            ->orderBy('id','desc')->get();
+                            ->orderBy('order')->get();
         return view('site.projects',compact('projects'));
     }
     public function project_cgi_details(string $slug){
@@ -40,7 +40,7 @@ class ProjectSiteController extends Controller
         $projects = Project::where('is_visible',1)
                             ->where('project_type','motion_graphic')
                             ->where('parent_id',NULL)
-                            ->orderBy('id','desc')->get();
+                            ->orderBy('order')->get();
         return view('site.projects',compact('projects'));
     }
     public function project_motion_graphic_details(string $slug)
@@ -81,9 +81,10 @@ class ProjectSiteController extends Controller
         $projects = Project::where('is_visible',1)
                             ->where('project_type','video_production')
                             ->where('parent_id',NULL)
-                            ->orderBy('id','desc')->get();
+                            ->orderBy('order')->get();
         return view('site.projects',compact('projects'));
     }
+    
     public function project_video_production_details(string $slug)
     {
         $parent_project = Project::where('slug',$slug)->first();

@@ -91,6 +91,19 @@
                      </div> 
                </div>
             </div>
+            <div class="card" id="details-page-image" style="display: none;">
+               <div class="card-header bg-primary text-light">
+                  Details Page Image
+               </div>
+               <div class="card-body text-center">
+                     <div class="mb-2">
+                        <img class="img-thumbnail rounded me-2" id="blah2" alt="" width="200" src="{{ $project->getFirstMediaUrl('project-video-production-details') }}" data-holder-rendered="true" style="display: {{ is_have_image($project->getFirstMediaUrl('project-video-production-details')) }};">
+                     </div>
+                     <div class="mb-0">
+                        <input type="file" name="file2" class="filestyle" id="imgInp2" data-input="false" data-buttonname="btn-secondary">
+                     </div> 
+               </div>
+            </div>
                <div class="card">
                   <div class="card-header bg-primary text-light">
                      Publish
@@ -136,10 +149,12 @@
             $('#parent-design').hide();
             $('#video-link').hide();
             $('#parent-image').show();
+            $('#details-page-image').show();
         } else {
             $('#parent-design').show();
             $('#video-link').show();
             $('#parent-image').hide();
+            $('#details-page-image').hide();
         }
     }
 
@@ -151,5 +166,17 @@
         toggleOptions();
     });
 });
+</script>
+<script>
+   $('#imgInp2').on('change', function() {
+       var input = this;
+       if (input.files && input.files[0]) {
+           var reader = new FileReader();
+           reader.onload = function(e) {
+               $('#blah2').attr('src', e.target.result).css('display', 'block');
+           }
+           reader.readAsDataURL(input.files[0]);
+       }
+   });
 </script>
 @endsection

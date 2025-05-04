@@ -13,7 +13,8 @@ class ProjectMotionGraphicController extends Controller
     public function index()
     {
         $projects = Project::where('project_type','motion_graphic')->get();
-        return view('admin.project_motion_graphics.index',compact('projects'));
+        $projects_parent = Project::where('project_type','motion_graphic')->where('parent_id',null)->orderBy('order')->get();
+        return view('admin.project_motion_graphics.index',compact('projects','projects_parent'));
     }
 
     public function create()
@@ -42,6 +43,9 @@ class ProjectMotionGraphicController extends Controller
         $project->project_type = 'motion_graphic';
         if ($request->hasFile('file')) {
             $project->addMedia($request->file('file'))->toMediaCollection('project-motion-graphics');
+        }
+        if ($request->hasFile('file2')) {
+            $project->addMedia($request->file('file2'))->toMediaCollection('project-motion-graphics-details');
         }
         $res = $project->save();
         if($res){
@@ -90,6 +94,10 @@ class ProjectMotionGraphicController extends Controller
             $project->clearMediaCollection('project-motion-graphics');
             $project->addMedia($request->file('file'))->toMediaCollection('project-motion-graphics');
         }
+        if ($request->hasFile('file2')) {
+            $project->clearMediaCollection('project-motion-graphics-details');
+            $project->addMedia($request->file('file2'))->toMediaCollection('project-motion-graphics-details');
+        }
         $res = $project->update();
         if($res){
             return redirect()->back()->with('success','Data Updated Successfully');
@@ -111,5 +119,18 @@ class ProjectMotionGraphicController extends Controller
         }else{
             return back()->with('error','Not Found');
         }
+    }
+
+    public function updateParentOrder(Request $request)
+    {
+        // return $request->order;
+        foreach ($request->order as $item) {
+            Project::where('id', $item['id'])
+                ->whereNull('parent_id') // ensure only parent records are updated
+                ->where('project_type','motion_graphic')
+                ->update(['order' => $item['position']]);
+        }
+
+        return response()->json(['status' => 'success']);
     }
 }
