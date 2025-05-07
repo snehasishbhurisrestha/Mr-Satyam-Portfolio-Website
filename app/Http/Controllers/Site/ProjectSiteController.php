@@ -29,7 +29,8 @@ class ProjectSiteController extends Controller
                                 ->where('project_type','cgi')
                                 ->where('parent_id',$parent_project->id)
                                 ->orderBy('id','desc')->get();
-            return view('site.project_details',compact('projects'));
+            $collection = 'project-cgi-details';
+            return view('site.project_details',compact('projects','parent_project','collection'));
         }else{
             return redirect()->back()->with('error','No Data avaliable');
         }
@@ -51,7 +52,8 @@ class ProjectSiteController extends Controller
                                 ->where('project_type','motion_graphic')
                                 ->where('parent_id',$parent_project->id)
                                 ->orderBy('id','desc')->get();
-            return view('site.project_details',compact('projects'));
+            $collection = 'project-motion-graphics-details';
+            return view('site.project_details',compact('projects','parent_project','collection'));
         }else{
             return redirect()->back()->with('error','No Data avaliable');
         }
@@ -93,7 +95,8 @@ class ProjectSiteController extends Controller
                                 ->where('project_type','video_production')
                                 ->where('parent_id',$parent_project->id)
                                 ->orderBy('id','desc')->get();
-            return view('site.project_details',compact('projects'));
+            $collection = 'project-video-production-details';
+            return view('site.project_details',compact('projects','parent_project','collection'));
         }else{
             return redirect()->back()->with('error','No Data avaliable');
         }

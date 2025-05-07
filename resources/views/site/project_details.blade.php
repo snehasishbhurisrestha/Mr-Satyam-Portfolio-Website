@@ -91,10 +91,14 @@
         <div class="container" style="margin-top: 25px;">
             <div class="row d-flex">
                 <div class="col-md-6 justify-content-center">
-                    <div class="text-center testimonial-title">
+                    {{-- <div class="text-center testimonial-title">
                         <h2 class="title-uppercase mb-0" style="color: #272727;">Shareable videos accelerate <span> brand recognition</span> globally</h2>
                         <p>Join the movement and be part of the buzz!</p>
-                    </div>
+                    </div> --}}
+                    @if ($parent_project->hasMedia($collection))
+                        <img src="{{ $parent_project->getFirstMediaUrl($collection) }}" alt="" style="display: inline-block; max-width: 100%; height: auto; vertical-align: middle;">
+                    @endif
+
                 </div>
             </div>
             <div class="video-grid">
