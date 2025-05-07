@@ -13,7 +13,8 @@ class ProjectCGIController extends Controller
     public function index()
     {
         $projects = Project::where('project_type','cgi')->get();
-        return view('admin.project_cgi.index',compact('projects'));
+        $projects_parent = Project::where('project_type','cgi')->where('parent_id',null)->orderBy('order')->get();
+        return view('admin.project_cgi.index',compact('projects','projects_parent'));
     }
 
     public function create()
@@ -42,6 +43,9 @@ class ProjectCGIController extends Controller
         $project->project_type = 'cgi';
         if ($request->hasFile('file')) {
             $project->addMedia($request->file('file'))->toMediaCollection('project-cgi');
+        }
+        if ($request->hasFile('file2')) {
+            $project->addMedia($request->file('file2'))->toMediaCollection('project-cgi-details');
         }
         $res = $project->save();
         if($res){
@@ -91,6 +95,10 @@ class ProjectCGIController extends Controller
             $project->clearMediaCollection('project-cgi');
             $project->addMedia($request->file('file'))->toMediaCollection('project-cgi');
         }
+        if ($request->hasFile('file2')) {
+            $project->clearMediaCollection('project-cgi-details');
+            $project->addMedia($request->file('file2'))->toMediaCollection('project-cgi-details');
+        }
         $res = $project->update();
         if($res){
             return redirect()->back()->with('success','Data Updated Successfully');
@@ -112,5 +120,18 @@ class ProjectCGIController extends Controller
         }else{
             return back()->with('error','Not Found');
         }
+    }
+
+    public function updateParentOrder(Request $request)
+    {
+        // return $request->order;
+        foreach ($request->order as $item) {
+            Project::where('id', $item['id'])
+                ->whereNull('parent_id') // ensure only parent records are updated
+                ->where('project_type','cgi')
+                ->update(['order' => $item['position']]);
+        }
+
+        return response()->json(['status' => 'success']);
     }
 }

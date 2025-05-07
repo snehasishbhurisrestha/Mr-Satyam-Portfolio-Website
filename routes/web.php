@@ -66,6 +66,8 @@ Route::middleware('auth')->group(function () {
     
 
     Route::resource('project-cgi', ProjectCGIController::class);
+    Route::post('cgi-update-parent-order', [ProjectCGIController::class,'updateParentOrder'])->name('project-cgi.update-order');
+
     Route::resource('graphic-design', GraphicDesignController::class);
 
     Route::resource('video-production', VideoProduction::class);
