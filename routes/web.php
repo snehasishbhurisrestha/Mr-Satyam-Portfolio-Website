@@ -67,7 +67,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('project-cgi', ProjectCGIController::class);
     Route::resource('graphic-design', GraphicDesignController::class);
+
     Route::resource('video-production', VideoProduction::class);
+    Route::post('video-update-parent-order', [VideoProduction::class,'updateParentOrder'])->name('video-production.update-order');
 
     Route::resource('our-client', OurClientController::class);
     Route::resource('banner', BannerController::class);

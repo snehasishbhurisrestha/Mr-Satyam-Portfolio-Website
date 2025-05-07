@@ -13,7 +13,8 @@ class VideoProduction extends Controller
     public function index()
     {
         $projects = Project::where('project_type','video_production')->get();
-        return view('admin.video_production.index',compact('projects'));
+        $projects_parent = Project::where('project_type','video_production')->where('parent_id',null)->orderBy('order')->get();
+        return view('admin.video_production.index',compact('projects','projects_parent'));
     }
 
     public function create()

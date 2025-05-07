@@ -7,12 +7,65 @@
 
     <div class="page-title-box">
         <div class="row align-items-center">
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <h6 class="page-title">Project Video Production</h6>
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">All Project Video Production</li>
                 </ol>
+            </div>
+            <div class="col-md-4">
+                <div class="my-4 text-center">
+                    <!-- Small modal -->
+                    <button type="button" class="btn btn-primary waves-effect waves-light"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModalScrollable">Parent Order</button>
+                </div>
+
+                <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalScrollableTitle">
+                                    Parent Order (Drag and drop to maintain the order)</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-striped table-bordered nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-wrap">Sl No.</th>
+                                            <th class="text-wrap">Title</th>
+                                            <th class="text-wrap">Created At</th>
+                                            <th class="text-wrap">Visibility</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="sortable">
+                                        @foreach($projects_parent as $item)
+                                        <tr data-id="{{ $item->id }}">
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td class="text-wrap">{{ $item->name }}</td>
+                                            <td class="text-wrap">{{ format_datetime($item->created_at) }}</td>
+                                            <td><?= check_visibility($item->is_visible);?> </td>
+                                        </tr>
+                                        <?php endforeach;?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save
+                                    changes</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
             </div>
             <div class="col-md-4">
                 <div class="float-end d-none d-md-block">
@@ -76,5 +129,46 @@
             </div>
         </div> <!-- end col -->
     </div> <!-- end row -->
+
+@endsection
+
+@section('script')
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script>
+    $(function () {
+        $("#sortable").sortable({
+            placeholder: "ui-state-highlight"
+        });
+
+        // Save Order Button Click
+        $(".modal-footer .btn-primary").on("click", function () {
+            let order = [];
+            $("#sortable tr").each(function (index, element) {
+                order.push({
+                    id: $(element).data("id"),      // <-- add id from HTML
+                    position: index + 1
+                });
+            });
+
+            // Send AJAX request to Laravel
+            $.ajax({
+                url: "{{ route('video-production.update-order') }}", // Update this route name
+                method: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    order: order
+                },
+                success: function (response) {
+                    showToast('success', 'Success', 'Order saved successfully!');
+                    location.reload();
+                },
+                error: function () {
+                    showToast('error', 'Error', 'Something went wrong.');
+                }
+            });
+        });
+    });
+</script>
 
 @endsection
