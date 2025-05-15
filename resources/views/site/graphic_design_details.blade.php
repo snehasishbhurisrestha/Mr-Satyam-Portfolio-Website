@@ -61,13 +61,22 @@
                 <div class="gallery-section">
                     <div style="position:absolute;border-radius:inherit;top:0;right:0;bottom:0;left:0">
                         @if ($designs && $designs->getFirstMediaUrl('graphic-design'))
-                        <img src="{{ $designs->getFirstMediaUrl('graphic-design') }}" alt="Thumbnail" style="    display: block;
+                        {{-- <img src="{{ $designs->getFirstMediaUrl('graphic-design') }}" alt="Thumbnail" style="    display: block;
                                         width: 100%;
                                         height: 100%;
                                         border-radius: inherit;
                                         object-position: center center;
                                         /*object-fit: cover;*/
+                                        image-rendering: auto;"> --}}
+                        <img src="{{ $designs->getFirstMediaUrl('graphic-design') }}" alt="Thumbnail" style="
+                                        display: block;
+                                        width: 100%;
+                                        height: auto;
+                                        border-radius: inherit;
+                                        object-fit: contain;
+                                        object-position: top center;
                                         image-rendering: auto;">
+
                         @endif
                     </div>
                 </div>
