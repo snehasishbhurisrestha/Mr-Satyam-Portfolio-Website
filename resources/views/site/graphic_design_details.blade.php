@@ -48,7 +48,7 @@
 @section('content')
 <div class="pagepiling">
     <section class="projects pp-scrollable pagepiling" style="padding: 6rem 0rem !important;overflow-y: auto;">
-        <div class="container" style="margin-top: 25px;padding-left:5px;padding-right:5px;">
+        <div class="container-fluid" style="margin-top: 25px;padding-left:5px;padding-right:5px;">
             {{-- <div class="row d-flex">
                 <div class="col-md-6 justify-content-center">
                     <div class="text-center testimonial-title">

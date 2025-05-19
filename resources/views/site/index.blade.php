@@ -47,6 +47,10 @@
 </style>
 <!-- Fancybox CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+
+<!-- for services -->
+<link rel="stylesheet" href="{{ asset('assets/site-asset/services-assets/dist/css/normalize.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/site-asset/services-assets/main.css') }}">
 @endsection
 
 @section('content')
@@ -165,7 +169,7 @@
 
 	<div data-anchor="projects" class="pp-scrollable text-white section section-3" style="overflow-x: hidden;">
 		
-		<section class="mil-dark-bg">
+		{{-- <section class="mil-dark-bg">
 			<div class="mi-invert-fix">
 				<div class="mil-animation-frame">
 					<div class="mil-animation mil-position-1 mil-scale" data-value-1="2.4" data-value-2="1.4" style="top: 300px; right: -100px; translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 0px) scale(1.9262, 1.9262);"><div class="mil-dodecahedron">
@@ -362,9 +366,9 @@
 						<div class="mil-complex-text justify-content-center mil-up" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
 
 							<h2 class="mil-h1 mil-muted mil-center" style="margin: 0;">For Your <span class="mil-thin">Business.</span></h2>
-							{{-- <a href="#contact" class="mil-services-button mil-button mil-arrow-place"><span>What we do</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="mil-arrow">
+							<!-- <a href="#contact" class="mil-services-button mil-button mil-arrow-place"><span>What we do</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="mil-arrow">
 								<path d="M 14 5.3417969 C 13.744125 5.3417969 13.487969 5.4412187 13.292969 5.6367188 L 13.207031 5.7226562 C 12.816031 6.1136563 12.816031 6.7467188 13.207031 7.1367188 L 17.070312 11 L 4 11 C 3.448 11 3 11.448 3 12 C 3 12.552 3.448 13 4 13 L 17.070312 13 L 13.207031 16.863281 C 12.816031 17.254281 12.816031 17.887344 13.207031 18.277344 L 13.292969 18.363281 C 13.683969 18.754281 14.317031 18.754281 14.707031 18.363281 L 20.363281 12.707031 C 20.754281 12.316031 20.754281 11.682969 20.363281 11.292969 L 14.707031 5.6367188 C 14.511531 5.4412187 14.255875 5.3417969 14 5.3417969 z"></path>
-							</svg></a> --}}
+							</svg></a> -->
 							<a href="#contact" class="mil-services-button mil-button mil-arrow-place"><span>Contact</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="mil-arrow">
 								<path d="M 14 5.3417969 C 13.744125 5.3417969 13.487969 5.4412187 13.292969 5.6367188 L 13.207031 5.7226562 C 12.816031 6.1136563 12.816031 6.7467188 13.207031 7.1367188 L 17.070312 11 L 4 11 C 3.448 11 3 11.448 3 12 C 3 12.552 3.448 13 4 13 L 17.070312 13 L 13.207031 16.863281 C 12.816031 17.254281 12.816031 17.887344 13.207031 18.277344 L 13.292969 18.363281 C 13.683969 18.754281 14.317031 18.754281 14.707031 18.363281 L 20.363281 12.707031 C 20.754281 12.316031 20.754281 11.682969 20.363281 11.292969 L 14.707031 5.6367188 C 14.511531 5.4412187 14.255875 5.3417969 14 5.3417969 z"></path>
 							</svg></a>
@@ -417,6 +421,63 @@
 
 						</div>
 					</div>
+				</div>
+			</div>
+		</section> --}}
+
+		<section id="attitude" class="xs-top-3">
+			<h2 class="big-fade xs-top-0">services</h2>
+			<div class="bs-grid grid-middle grid-inner">
+				<div class="text-progress">
+					<p>services</p>
+					<p>services</p>
+				</div>
+			</div>
+			<div class="boxes">
+				<div class=" stack">
+					<article class="box">
+						<h3 class="section-title"><i class="circle-tag"></i><i class="circle-tag"></i>RULE NO.1</h3>
+						<h4 class="bs-60 upper">Discipline</h4>
+						<p>At our core, we are a team of disciplined professionals who are passionate about our
+							craft. Our process is thorough, ensuring that we create work that is not only
+							buzzworthy, but also surpasses your expectations.</p>
+					</article>
+				</div>
+				<div class="b-end stack">
+					<article class="box">
+						<h3 class="section-title"><i class="circle-tag"></i><i class="circle-tag"></i>RULE NO.2</h3>
+						<h4 class="bs-60 upper">Trust</h4>
+						<p>Trust is essential in our client relationships. As experts in our field, we always strive
+							to make the best decisions for your brand. We kindly ask you to place your trust in our
+							process and unwavering dedication to your success.</p>
+					</article>
+				</div>
+				<div class="b-middle stack">
+					<article class="box">
+						<h3 class="section-title"><i class="circle-tag"></i><i class="circle-tag"></i>RULE NO.3</h3>
+						<h4 class="bs-60 upper">Passion</h4>
+						<p>Our passion for what we do is evident in what we create. We pour all of our creativity
+							and expertise into each project, ensuring that the end result is a unique and valuable
+							website that exceeds your expectations.</p>
+					</article>
+				</div>
+				<div class=" stack">
+					<article class="box">
+						<h3 class="section-title"><i class="circle-tag"></i><i class="circle-tag"></i>RULE NO.4</h3>
+						<h4 class="bs-60 upper">Devotion</h4>
+						<p>We are devoted to our clients and to delivering our best work. Our commitment to
+							perfection means that we won't stop until you are raving about us to everyone you know.
+						</p>
+					</article>
+				</div>
+				<div class="b-middle stack">
+					<article class="box">
+						<h3 class="section-title"><i class="circle-tag"></i><i class="circle-tag"></i>RULE NO.5</h3>
+						<h4 class="bs-60 upper">Promise</h4>
+						<p>We understand that redesigning your entire brand or website can be a daunting change. Our
+							promise to you is that we will always strive to make you happy and satisfied with our
+							work.</p>
+					</article>
 				</div>
 			</div>
 		</section>
@@ -946,4 +1007,19 @@
 	  },
 	});
 </script>
+
+<script>window.ASSETS = ["https://images.prismic.io/buzzworthy/Zh_9YPPdc1huKlPk_ssi-mood.jpg?auto=format,compress", "https://images.prismic.io/buzzworthy/Zh_9X_Pdc1huKlPj_op-mood.jpg?auto=format,compress", "https://images.prismic.io/buzzworthy/Zh_9YfPdc1huKlPl_va-mood.jpg?auto=format,compress", "https://images.prismic.io/buzzworthy/Zh_9XPPdc1huKlPg_hy-mood.jpg?auto=format,compress", "https://images.prismic.io/buzzworthy/Zh_9XvPdc1huKlPi_oa-mood.jpg?auto=format,compress", "https://images.prismic.io/buzzworthy/Zh_9WvPdc1huKlPb_be-mood.jpg?auto=format,compress", "https://images.prismic.io/buzzworthy/Zh_9W_Pdc1huKlPd_hp-mood.jpg?auto=format,compress", "https://images.prismic.io/buzzworthy/Zh_9WvPdc1huKlPc_ho-mood.jpg?auto=format,compress", "https://images.prismic.io/buzzworthy/Zh_9XfPdc1huKlPh_md-mood.jpg?auto=format,compress"]
+</script>
+<script src="{{ asset('assets/site-asset/services-assets/dist/js/app.min.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.147.0/three.min.js"
+	integrity="sha512-GWXLkqxMENYgBdQvA/lTeOV+R2auhasgKQxjMTWBFt3Z6GJVZ9owiyAMOzz0Wt6J1ri8bf/g2kHJV0uvWpJTuw=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{{ asset('assets/site-asset/services-assets/dist/js/utils/shaderUtils.js') }}"></script>
+<script src="{{ asset('assets/site-asset/services-assets/dist/js/honey-ball-src/shaders/bubble-shaders.js') }}"></script>
+<script src="{{ asset('assets/site-asset/services-assets/dist/js/honey-ball-src/shaders/honey-ball-shaders.js') }}"></script>
+<script src="{{ asset('assets/site-asset/services-assets/dist/js/honey-ball-src/bubbles-fbo.js') }}"></script>
+<script src="{{ asset('assets/site-asset/services-assets/dist/js/honey-ball-src/cam-parallax.js') }}"></script>
+<script src="{{ asset('assets/site-asset/services-assets/dist/js/honey-ball-src/honey-ball.js') }}"></script>
+<script src="{{ asset('assets/site-asset/services-assets/dist/js/honey-ball-src/main-three-scene.js') }}"></script>
+<script src="{{ asset('assets/site-asset/services-assets/main.js') }}"></script>
 @endsection
